@@ -1,0 +1,29 @@
+{
+  "name": "arqi-nl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Statische website voor Arqi, business en IT bureau in Amstelveen. Onderdeel van Flii Media.",
+  "homepage": "https://arqi.nl",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Fliimedia/Arqi.nl.git"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes serve . -l 3000",
+    "build": "npm run sitemap && npm run check",
+    "sitemap": "node scripts/build-sitemap.mjs",
+    "check": "node scripts/check.mjs",
+    "check:dashes": "node scripts/check.mjs --dashes-only"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "arqi",
+    "business-en-it",
+    "static-site",
+    "kennisbank"
+  ]
+}

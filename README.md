@@ -16,6 +16,18 @@ vercel.json             cleanUrls staat aan, zodat /kennisbank/kubernetes werkt 
 CNAME                   custom domain voor GitHub Pages
 ```
 
+## Scripts
+
+```
+npm run dev        lokale server op poort 3000
+npm run build      sitemap genereren en controles draaien
+npm run sitemap    sitemap.xml opnieuw opbouwen uit de aanwezige html
+npm run check      controleert dashes, merknamen en dode kennisbanklinks
+```
+
+Er is geen build step: CSS en JS staan inline in de HTML. `package.json` is er voor
+de dev-server en de controles, niet om iets te compileren.
+
 ## Deploy
 
 Vercel pakt de repo direct op als static site. `cleanUrls` in `vercel.json` is nodig:
