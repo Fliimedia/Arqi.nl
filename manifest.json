@@ -1,0 +1,13 @@
+{
+  "name": "Arqi",
+  "short_name": "Arqi",
+  "description": "Business en IT bureau in Amstelveen",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#5C6E7A",
+  "icons": [
+    { "src": "https://fliimedia.github.io/Flii.nl/assets/img/b5277d0cef7e.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

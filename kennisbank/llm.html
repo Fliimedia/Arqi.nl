@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LLM betekenis en toepassing | Kennisbank Arqi</title>
+<meta name="description" content="Taalmodel dat tekst begrijpt en genereert op basis van een prompt.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLM betekenis en toepassing | Kennisbank Arqi">
+<meta property="og:description" content="Taalmodel dat tekst begrijpt en genereert op basis van een prompt.">
+<meta property="og:url" content="https://arqi.nl/kennisbank/llm">
+<meta property="og:site_name" content="Arqi">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://arqi.nl/kennisbank/llm">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/reduced-motion.css">
+<link rel="icon" type="image/png" href="https://fliimedia.github.io/Flii.nl/assets/img/b5277d0cef7e.png">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+  --ff-mono:'JetBrains Mono',monospace;
+  --mag:#5C6E7A;--ink:#0F0E0C;--mid:#4A4840;--sub:#9B9790;--rule:#E8E6E1;--card:#F9F8F6;
+}
+body{font-family:var(--ff-body);background:#fff;color:var(--ink);-webkit-font-smoothing:antialiased;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--rule);position:sticky;top:0;background:#fff;z-index:100}
+.nav img{height:32px;width:auto}
+.nav-back{font-size:13px;color:#0F0E0C!important;font-weight:600;text-decoration:none;opacity:.85;}
+.nav-back:hover{color:var(--ink)}
+.hero{padding:36px 24px 28px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:#5C6E7A;display:block;margin-bottom:10px;
+}
+.hero h1{font-family:var(--ff-disp);font-size:clamp(28px,8vw,42px);font-weight:900;letter-spacing:-1.5px;line-height:1.05;color:var(--ink);margin-bottom:12px}
+.defn{font-size:15px;color:var(--mid);line-height:1.65;border-left:3px solid var(--mag);padding-left:16px;margin-top:4px}
+section{padding:28px 24px;border-bottom:1px solid var(--rule)}
+section h2{font-family:var(--ff-disp);font-size:16px;font-weight:800;letter-spacing:-.3px;color:var(--ink);margin-bottom:10px}
+section p{font-size:14px;color:var(--mid);line-height:1.72}
+.example-box{background:var(--card);border-radius:12px;padding:18px 18px 16px;margin-top:4px}
+.example-label{font-family:var(--ff-mono);font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);display:block;margin-bottom:8px}
+.example-text{font-size:13px;color:var(--ink);line-height:1.65}
+
+
+
+
+.footer{padding:16px 24px;text-align:center;font-size:11px;color:var(--sub)}
+.footer a{color:var(--ink);font-weight:600;text-decoration:none}
+
+
+
+
+@keyframes neon-pulse{0%,100%{border-color:rgba(92,110,122,.7);box-shadow:0 0 8px rgba(92,110,122,.2);}50%{border-color:rgba(92,110,122,1);box-shadow:0 0 16px rgba(92,110,122,.4);}}
+
+
+
+
+
+
+
+.kb-chip{display:inline-block;margin-top:14px;font-family:var(--ff-mono);font-size:10px;font-weight:700;
+ letter-spacing:.1em;text-transform:uppercase;color:var(--mid);background:#F9F8F6;
+ border:1px solid var(--rule);border-radius:100px;padding:5px 12px;}
+.kb-nextprev{display:flex;gap:10px;padding:20px 24px;flex-wrap:wrap;}
+.kb-nextprev a{flex:1;min-width:180px;border:1px solid var(--rule);border-radius:10px;padding:12px 14px;
+ text-decoration:none;color:var(--ink);}
+.kb-nextprev span{display:block;font-family:var(--ff-mono);font-size:9px;letter-spacing:.12em;
+ text-transform:uppercase;color:var(--sub);margin-bottom:4px;}
+.kb-nextprev strong{font-size:13px;font-weight:700;}
+.kb-nextprev a:hover{border-color:var(--mag);}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../kennisbank"><img src="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.png" alt="Arqi"></a>
+  <a href="../kennisbank" class="nav-back">&larr; Kennisbank</a>
+</nav>
+<div class="hero">
+  <span class="eyebrow">Kennisbank</span>
+  <h1>LLM</h1>
+  <p class="defn">Taalmodel dat tekst begrijpt en genereert op basis van een prompt.</p>
+  <div class="kb-chip">AI en automatisering</div>
+</div>
+<section>
+  <h2>Uitleg</h2>
+  <p>Een large language model genereert tekst op basis van een instructie. Het weet niets, maar voorspelt wat plausibel is. Daarmee is het sterk in taal en samenvatten, en onbetrouwbaar als feitenbron zonder onderbouwing.</p>
+</section>
+<section>
+  <h2>Praktisch voorbeeld</h2>
+  <div class="example-box">
+    <span class="example-label">Hoe Arqi dit toepast</span>
+    <p class="example-text">Voor alles wat feitelijk moet kloppen koppelen we het model aan je eigen bronnen in plaats van te vertrouwen op wat het geleerd heeft.</p>
+  </div>
+</section>
+<div class="kb-nextprev"><a href="business-continuity"><span>Vorige</span><strong>Business continuity</strong></a><a href="prompt-engineering"><span>Volgende</span><strong>Prompt engineering</strong></a></div>
+<footer class="footer">
+  <p><a href="../">Arqi</a> &middot; <a href="../kennisbank">Kennisbank</a> &middot; by Flii Media &middot; &copy; 2026</p>
+</footer>
+</body>
+</html>

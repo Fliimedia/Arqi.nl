@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kennisbank IT, data &amp; cloud | Arqi</title>
+<meta name="description" content="114 begrippen uit IT-architectuur, cloud, data, development, security en AI, kort en concreet uitgelegd.">
+<link rel="canonical" href="https://arqi.nl/kennisbank">
+<meta name="theme-color" content="#5C6E7A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fliimedia.github.io/Flii.nl/assets/reduced-motion.css">
+<link rel="icon" type="image/png" href="https://fliimedia.github.io/Flii.nl/assets/img/b5277d0cef7e.png">
+<style>:root{--mag:#5C6E7A;--ink:#0F0E0C;--mid:#4A4840;--subtle:#9B9790;--rule:#E8E6E1;--bg:#F3F1EB;--white:#fff;
+  --ff-disp:'Bricolage Grotesque','Inter',system-ui,sans-serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;--ff-mono:'JetBrains Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
+body{font-family:var(--ff-body);background:#fff;color:var(--ink);}
+a{color:inherit;text-decoration:none;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:56px;
+  border-bottom:1px solid var(--rule);position:sticky;top:0;
+  background:#fff;backdrop-filter:blur(12px);z-index:100;}
+.nav-brand{display:flex;align-items:center;gap:8px;font-family:var(--ff-disp);font-size:15px;font-weight:800;color:var(--ink);}
+.nav-brand img{height:26px;width:auto;}
+.nav-back{font-size:13px;color:#0F0E0C!important;font-weight:600;text-decoration:none;opacity:.85;}
+.nav-back:hover{color:var(--ink);}
+.kb-hero{padding:36px 20px 24px;border-bottom:1px solid var(--rule);background:#fff;}
+.eyebrow{
+  font-family:'Bricolage Grotesque',system-ui,sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:#5C6E7A;display:block;margin-bottom:10px;
+}
+.kb-hero h1{font-family:var(--ff-disp);font-size:clamp(22px,6vw,32px);font-weight:800;
+  letter-spacing:-1px;line-height:1.05;margin-bottom:5px;}
+.kb-hero p{font-size:13px;color:var(--mid);line-height:1.5;}
+.kb-body{padding:0 0 64px;}
+/* Category header */
+.kb-cat-label{display:flex;align-items:center;gap:10px;font-family:var(--ff-mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B6866;padding:10px 0 8px;border-bottom:1px solid #E8E6E1;background:#FAF8F4;border-radius:6px;padding:8px 12px;margin-bottom:4px;}
+.kb-cat-num{font-family:var(--ff-mono);font-size:10px;color:var(--mag);min-width:22px;font-weight:700;}
+/* Main topic rows */
+.kb-row{
+  display:flex;align-items:center;
+  padding:0 20px;
+  border-bottom:1px solid rgba(232,230,225,.6);
+  text-decoration:none;color:var(--ink);
+  transition:background .1s;
+  min-height:52px;
+}
+.kb-row:hover{background:rgba(92,110,122,.04);}
+.kb-row-left{display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;padding:10px 10px 10px 0;}
+.kb-term{font-size:14px;font-weight:700;color:var(--ink);line-height:1.2;}
+.kb-def{font-size:12px;color:var(--subtle);line-height:1.3;margin-top:2px;}
+.kb-row-arrow{
+  display:inline-flex;align-items:center;gap:4px;flex-shrink:0;
+  color:var(--subtle);font-size:11px;font-weight:600;font-family:var(--ff-body);
+  white-space:nowrap;padding-left:8px;transition:color .15s,transform .15s;
+}
+.kb-row:hover .kb-row-arrow{color:var(--mag);transform:translateX(3px);}
+.kb-row-arrow svg{width:13px;height:13px;flex-shrink:0;}
+/* Sub-topics */
+.kb-subs{background:rgba(232,230,225,.18);}
+.kb-sub-row{
+  display:flex;align-items:center;
+  padding:0 20px 0 32px;
+  border-bottom:1px solid rgba(232,230,225,.4);
+  text-decoration:none;color:var(--ink);
+  transition:background .1s;
+  min-height:40px;
+}
+.kb-sub-row:last-child{border-bottom:none;}
+.kb-sub-row:hover{background:rgba(92,110,122,.04);}
+.kb-sub-left{display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;padding:7px 8px 7px 0;}
+.kb-sub-term{font-size:13px;font-weight:600;color:var(--mid);}
+.kb-sub-def{font-size:11px;color:var(--subtle);line-height:1.3;margin-top:1px;}
+.kb-sub-arr{display:inline-flex;align-items:center;gap:3px;flex-shrink:0;
+  color:rgba(155,151,144,.5);font-size:10px;font-weight:600;white-space:nowrap;padding-left:6px;
+  transition:color .15s;}
+.kb-sub-row:hover .kb-sub-arr{color:var(--mag);}
+.kb-sub-arr svg{width:11px;height:11px;}
+.page-footer{padding:28px 24px;text-align:center;font-size:12px;color:var(--subtle);
+  border-top:1px solid var(--rule);background:var(--white);}
+.page-footer a{color:var(--ink);font-weight:600;}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="../" class="nav-brand"><img src="https://fliimedia.github.io/Flii.nl/assets/img/d913cc3c069f.png" alt="Arqi"><span style="font-size:11px;font-weight:600;letter-spacing:.01em;white-space:nowrap;background:linear-gradient(135deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.02) 100%);color:#0F0E0C;border:1px solid rgba(0,0,0,.25);border-radius:100px;padding:3px 10px;margin-left:8px">Kennisbank</span></a>
+  <a href="../" class="nav-back">&larr; Terug naar home</a>
+</nav>
+<div class="kb-hero">
+  <span class="eyebrow">Kennisbank</span>
+  <h1>IT, data &amp; cloud</h1>
+  <p>114 begrippen uit architectuur, cloud, data, development, security en AI. Kort uitgelegd, met definitie, uitleg en een voorbeeld uit de praktijk.</p>
+</div>
+<div class="kb-body">
+  <div class="kb-cat-group" id="kb-architectuur">
+    <div class="kb-cat-label"><span class="kb-cat-num">01</span>IT-architectuur</div>
+    <a href="enterprise-architectuur" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Enterprise architectuur</span><span class="kb-def">Het totaalplaatje van processen, informatie, applicaties en techniek.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="applicatielandschap" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Applicatielandschap</span><span class="kb-def">Alle systemen die in gebruik zijn en hoe ze aan elkaar hangen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="referentiearchitectuur" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Referentiearchitectuur</span><span class="kb-def">Een standaardmodel dat je als vertrekpunt gebruikt voor nieuwe oplossingen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="togaf" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">TOGAF</span><span class="kb-def">Veelgebruikte methode om architectuur te ontwikkelen en te beheren.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="archimate" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">ArchiMate</span><span class="kb-def">Modelleertaal om architectuur visueel vast te leggen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="capability-map" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Capability map</span><span class="kb-def">Overzicht van wat een organisatie moet kunnen, los van systemen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="monoliet" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Monoliet</span><span class="kb-def">Eén groot systeem waarin alle functionaliteit samen is gebouwd.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="microservices" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Microservices</span><span class="kb-def">Kleine losse services die elk één taak doen en samen een applicatie vormen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="api" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">API</span><span class="kb-def">Afspraak waarmee systemen gegevens en functies bij elkaar opvragen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="integratielaag" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Integratielaag</span><span class="kb-def">Tussenlaag die koppelingen tussen systemen regelt en vertaalt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="event-drivarchitectuur" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Event-driven architectuur</span><span class="kb-def">Systemen reageren op gebeurtenissen in plaats van elkaar direct aan te roepen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="domain-drivdesign" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Domain-driven design</span><span class="kb-def">Software indelen langs de begrippen en grenzen van het bedrijf zelf.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="legacy" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Legacy</span><span class="kb-def">Oud systeem dat nog draait maar lastig te wijzigen of te vervangen is.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="technical-debt" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Technical debt</span><span class="kb-def">Achterstallig onderhoud in code en inrichting dat later tijd kost.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="vendor-lock-in" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Vendor lock-in</span><span class="kb-def">Afhankelijkheid van één leverancier waardoor overstappen duur wordt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="migratiepad" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Migratiepad</span><span class="kb-def">De volgorde waarin je van de huidige naar de gewenste situatie komt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </div>
+  <div class="kb-cat-group" id="kb-cloud">
+    <div class="kb-cat-label"><span class="kb-cat-num">02</span>Cloud</div>
+    <a href="iaas" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">IaaS</span><span class="kb-def">Je huurt rekenkracht, opslag en netwerk en beheert de rest zelf.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="paas" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">PaaS</span><span class="kb-def">Je huurt een platform en levert alleen de applicatie aan.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="saas" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">SaaS</span><span class="kb-def">Kant-en-klare software als abonnement, beheer ligt bij de leverancier.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="public-cloud" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Public cloud</span><span class="kb-def">Gedeelde infrastructuur van een aanbieder als Azure, AWS of Google Cloud.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="private-cloud" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Private cloud</span><span class="kb-def">Cloudinfrastructuur die exclusief voor één organisatie draait.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="hybride-cloud" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Hybride cloud</span><span class="kb-def">Combinatie van eigen datacenter en publieke cloud in één omgeving.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="multicloud" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Multicloud</span><span class="kb-def">Bewust werken met meerdere cloudaanbieders naast elkaar.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="container" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Container</span><span class="kb-def">Verpakking van een applicatie met alles wat die nodig heeft om te draaien.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="kubernetes" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Kubernetes</span><span class="kb-def">Platform dat containers verdeelt, schaalt en draaiend houdt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="serverless" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Serverless</span><span class="kb-def">Code die alleen draait als er een aanvraag is, zonder eigen servers.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="infrastructure-as-code" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Infrastructure as code</span><span class="kb-def">Infrastructuur vastleggen in code zodat die herhaalbaar uitrolt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="terraform" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Terraform</span><span class="kb-def">Veelgebruikte tool om infrastructuur als code uit te rollen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="autoscaling" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Autoscaling</span><span class="kb-def">Automatisch op- en afschalen op basis van de belasting.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="load-balancer" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Load balancer</span><span class="kb-def">Verdeelt verkeer over meerdere servers zodat er niets omvalt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="cdn" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">CDN</span><span class="kb-def">Netwerk dat bestanden dicht bij de gebruiker aflevert voor snelheid.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="region-availability-zone" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Region en availability zone</span><span class="kb-def">Geografische locaties waar je omgeving draait, met gescheiden storingsrisico.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="lift-and-shift" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Lift and shift</span><span class="kb-def">Bestaande systemen ongewijzigd naar de cloud verhuizen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="finops" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">FinOps</span><span class="kb-def">Cloudkosten inzichtelijk maken en per team of product sturen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="rto-rpo" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">RTO en RPO</span><span class="kb-def">Hoe snel je weer draait na uitval en hoeveel data je maximaal mag verliezen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="disaster-recovery" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Disaster recovery</span><span class="kb-def">Plan en inrichting om na een grote storing te herstellen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </div>
+  <div class="kb-cat-group" id="kb-data">
+    <div class="kb-cat-label"><span class="kb-cat-num">03</span>Data</div>
+    <a href="datamodel" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Datamodel</span><span class="kb-def">Vastlegging van welke gegevens er zijn en hoe ze zich verhouden.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="datawarehouse" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Datawarehouse</span><span class="kb-def">Centrale opslag waarin data uit bronsystemen samenkomt voor analyse.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="data-lake" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Data lake</span><span class="kb-def">Opslag voor ruwe data in elk formaat, zonder vooraf vast model.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="lakehouse" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Lakehouse</span><span class="kb-def">Combinatie van data lake en datawarehouse in één platform.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="etl" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">ETL</span><span class="kb-def">Data ophalen, bewerken en daarna laden in de doelomgeving.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="elt" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">ELT</span><span class="kb-def">Data eerst laden en pas in de doelomgeving bewerken.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="data-pipeline" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Data pipeline</span><span class="kb-def">Geautomatiseerde route waarlangs data van bron naar bestemming loopt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="dbt" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">dbt</span><span class="kb-def">Tool om transformaties in het datawarehouse te bouwen, testen en documenteren.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="masterdata" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Masterdata</span><span class="kb-def">Kerngegevens zoals klant, product of leverancier die overal hetzelfde moeten zijn.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="datakwaliteit" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Datakwaliteit</span><span class="kb-def">Meetbare volledigheid, juistheid en actualiteit van gegevens.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="data-lineage" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Data lineage</span><span class="kb-def">Herkomst en route van een gegeven, van bron tot rapportage.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="data-governance" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Data governance</span><span class="kb-def">Wie is eigenaar van welke data en wat mag ermee gebeuren.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="datacatalogus" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Datacatalogus</span><span class="kb-def">Vindbare lijst van datasets met betekenis, eigenaar en gebruik.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="business-intelligence" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Business intelligence</span><span class="kb-def">Rapportage en dashboards waarmee de organisatie stuurt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="streaming" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Streaming</span><span class="kb-def">Data verwerken op het moment dat die binnenkomt in plaats van in batches.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="data-mesh" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Data mesh</span><span class="kb-def">Data-eigenaarschap bij de domeinen zelf leggen in plaats van bij één team.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="anonimisering" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Anonimisering</span><span class="kb-def">Gegevens zo bewerken dat ze niet meer tot een persoon te herleiden zijn.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </div>
+  <div class="kb-cat-group" id="kb-development">
+    <div class="kb-cat-label"><span class="kb-cat-num">04</span>Development en DevOps</div>
+    <a href="repository" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Repository</span><span class="kb-def">Plek waar de broncode van een project staat, met historie.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="versiebeheer" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Versiebeheer</span><span class="kb-def">Wijzigingen in code bijhouden zodat je kunt samenwerken en terugdraaien.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="ci-cd" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">CI/CD</span><span class="kb-def">Automatisch bouwen, testen en uitrollen van iedere wijziging.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="pipeline" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Pipeline</span><span class="kb-def">Vaste reeks stappen die code van commit naar productie brengt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="code-review" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Code review</span><span class="kb-def">Collega leest wijzigingen na voordat die worden samengevoegd.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="unit-test" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Unit test</span><span class="kb-def">Geautomatiseerde test op een klein stuk code.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="otap" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">OTAP</span><span class="kb-def">Gescheiden omgevingen voor ontwikkeling, test, acceptatie en productie.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="feature-flag" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Feature flag</span><span class="kb-def">Schakelaar waarmee je functionaliteit aan of uit zet zonder nieuwe release.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="blue-gredeployment" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Blue-green deployment</span><span class="kb-def">Nieuwe versie naast de oude zetten en pas omschakelen als die werkt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="rollback" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Rollback</span><span class="kb-def">Terug naar de vorige werkende versie na een mislukte release.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="observability" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Observability</span><span class="kb-def">Kunnen zien wat een systeem doet via logs, metrics en traces.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="monitoring" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Monitoring</span><span class="kb-def">Bewaking van beschikbaarheid en prestaties met alerts.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="sla-slo" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">SLA en SLO</span><span class="kb-def">Afgesproken en intern nagestreefde niveaus van beschikbaarheid en snelheid.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="incident-response" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Incident response</span><span class="kb-def">Vaste werkwijze bij storingen, van melding tot evaluatie.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="postmortem" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Postmortem</span><span class="kb-def">Analyse na een incident, gericht op de oorzaak en niet op de schuldige.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="technical-documentation" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Technical documentation</span><span class="kb-def">Vastlegging van keuzes en werking zodat een ander team verder kan.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </div>
+  <div class="kb-cat-group" id="kb-security">
+    <div class="kb-cat-label"><span class="kb-cat-num">05</span>Security, governance en compliance</div>
+    <a href="iso-27001" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">ISO 27001</span><span class="kb-def">Norm voor informatiebeveiliging waarop je je kunt laten certificeren.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="nis2" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">NIS2</span><span class="kb-def">Europese richtlijn met beveiligingsplichten voor essentiële sectoren.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="dora" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">DORA</span><span class="kb-def">Europese verordening voor digitale weerbaarheid in de financiële sector.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="avg" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">AVG</span><span class="kb-def">Europese privacywetgeving over het verwerken van persoonsgegevens.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="bio" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">BIO</span><span class="kb-def">Baseline informatiebeveiliging voor de Nederlandse overheid.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="soc-2" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">SOC 2</span><span class="kb-def">Rapportage over beheersmaatregelen, veel gevraagd door Amerikaanse klanten.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="normenkader" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Normenkader</span><span class="kb-def">Verzameling eisen waaraan je organisatie aantoonbaar moet voldoen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="risicoanalyse" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Risicoanalyse</span><span class="kb-def">Bepalen welke risico's er zijn, hoe erg ze zijn en wat je eraan doet.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="dpia" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">DPIA</span><span class="kb-def">Verplichte toets op privacyrisico's bij gevoelige verwerkingen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="verwerkersovereenkomst" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Verwerkersovereenkomst</span><span class="kb-def">Contract met een leverancier die persoonsgegevens voor je verwerkt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="pentest" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Pentest</span><span class="kb-def">Gecontroleerde aanval op je systemen om zwakke plekken te vinden.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="iam" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">IAM</span><span class="kb-def">Beheer van wie toegang heeft tot wat, en waarom.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="mfa" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">MFA</span><span class="kb-def">Inloggen met meer dan alleen een wachtwoord.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="zero-trust" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Zero trust</span><span class="kb-def">Uitgangspunt dat geen enkel verzoek vooraf wordt vertrouwd.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="encryptie" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Encryptie</span><span class="kb-def">Gegevens versleutelen zodat ze onleesbaar zijn zonder sleutel.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="audit-trail" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Audit trail</span><span class="kb-def">Onveranderbaar spoor van wie wanneer wat heeft gedaan.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="bewijslast" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Bewijslast</span><span class="kb-def">De vastlegging waarmee je aan een auditor laat zien dat het werkt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="business-continuity" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Business continuity</span><span class="kb-def">Plan om door te kunnen werken als er iets grondig misgaat.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </div>
+  <div class="kb-cat-group" id="kb-ai">
+    <div class="kb-cat-label"><span class="kb-cat-num">06</span>AI en automatisering</div>
+    <a href="llm" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">LLM</span><span class="kb-def">Taalmodel dat tekst begrijpt en genereert op basis van een prompt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="prompt-engineering" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Prompt engineering</span><span class="kb-def">De instructie aan een model zo opbouwen dat het bruikbaar antwoord geeft.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="rag" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">RAG</span><span class="kb-def">Model laat antwoorden onderbouwen met documenten uit je eigen bronnen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="embedding" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Embedding</span><span class="kb-def">Numerieke weergave van tekst waarmee je op betekenis kunt zoeken.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="vectordatabase" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Vectordatabase</span><span class="kb-def">Opslag waarin je zoekt op betekenis in plaats van op exacte woorden.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="agent" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Agent</span><span class="kb-def">Model dat zelf stappen zet en tools aanroept om een taak af te maken.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="fine-tuning" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Fine-tuning</span><span class="kb-def">Een bestaand model bijtrainen op je eigen data en stijl.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="mlops" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">MLOps</span><span class="kb-def">Het bouwen, uitrollen en bewaken van modellen als vast proces.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="model-drift" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Model drift</span><span class="kb-def">Prestaties lopen terug omdat de werkelijkheid is veranderd.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="hallucinatie" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Hallucinatie</span><span class="kb-def">Het model geeft een vloeiend antwoord dat feitelijk niet klopt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="human-in-the-loop" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Human in the loop</span><span class="kb-def">Een mens beoordeelt of accordeert voordat de uitkomst telt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="evaluatieset" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Evaluatieset</span><span class="kb-def">Vaste testvragen waarmee je meet of een wijziging het model verbetert.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="ai-governance" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">AI-governance</span><span class="kb-def">Afspraken over toegestaan gebruik, verantwoordelijkheid en controle.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="ai-act" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">AI Act</span><span class="kb-def">Europese wet die AI-toepassingen indeelt naar risico en eisen stelt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="workflow-automatisering" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Workflow-automatisering</span><span class="kb-def">Handmatige stappen in een proces vervangen door geautomatiseerde.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </div>
+  <div class="kb-cat-group" id="kb-ux">
+    <div class="kb-cat-label"><span class="kb-cat-num">07</span>UX en product</div>
+    <a href="user-research" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">User research</span><span class="kb-def">Onderzoek naar wat gebruikers doen, nodig hebben en waar ze vastlopen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="persona" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Persona</span><span class="kb-def">Beschrijving van een gebruikerstype waarop je ontwerpkeuzes baseert.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="information-architecture" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Information architecture</span><span class="kb-def">De indeling en navigatie waarmee mensen dingen kunnen vinden.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="wireframe" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Wireframe</span><span class="kb-def">Schets van een scherm zonder afleiding van kleur en beeld.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="prototype" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Prototype</span><span class="kb-def">Klikbare versie waarmee je een ontwerp test voordat je bouwt.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="usability-test" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Usability test</span><span class="kb-def">Iemand een taak laten doen en kijken waar het misgaat.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="design-system" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Design system</span><span class="kb-def">Vastgelegde componenten en regels waarmee teams consistent bouwen.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="component-library" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Component library</span><span class="kb-def">De herbruikbare bouwstenen uit het design system, in code.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="design-token" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Design token</span><span class="kb-def">Vastgelegde waarde voor kleur, ruimte of typografie, gedeeld met code.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="wcag" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">WCAG</span><span class="kb-def">Richtlijnen voor toegankelijkheid van digitale producten.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="figma-to-code" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Figma to code</span><span class="kb-def">Ontwerp omzetten naar werkende componenten in de front-end.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+    <a href="definition-of-done" class="kb-row">
+      <div class="kb-row-left"><span class="kb-term">Definition of done</span><span class="kb-def">Afspraak wanneer werk echt af is, inclusief test en documentatie.</span></div>
+      <span class="kb-row-arrow">Meer<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+    </a>
+  </div>
+</div>
+<div class="page-footer">
+  Iets missen of verkeerd uitgelegd? <a href="mailto:hallo@arqi.nl">Laat het weten</a>.
+</div>
+</body>
+</html>
